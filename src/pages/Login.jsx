@@ -11,43 +11,67 @@ export default function Mainapp() {
   const navigate = useNavigate();
 
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const validEmails = [
-    "Admin: vikram.singh@precisioncast.com",
-    "Production: rajesh.kumar@precisioncast.com",
-    "Quality: priya.sharma@precisioncast.com",
+  
+  // ✅ FIXED UNIQUE USERS
+  const users = [
+    {
+      role: "admin",
+      email: "vikram.singh@precisioncast.com",
+      password: "123456",
+      route: "/admin-dashboard",
+    },
+    {
+      role: "production",
+      email: "rajesh.kumar@precisioncast.com",
+      password: "123456",
+      route: "/production-dashboard",
+    },
+    {
+      role: "quality",
+      email: "priya.sharma@precisioncast.com",
+      password: "123456",
+      route: "/quality-dashboard",
+    },
+    {
+      role: "procurement",
+      email: "amit.patel@precisioncast.com",
+      password: "123456",
+      route: "/procurement-dashboard",
+    },
+    {
+      role: "sales",
+      email: "sneha.mehta@precisioncast.com",
+      password: "123456",
+      route: "/sales",
+    },
   ];
+  
+  const validEmails = users.map(u => `${u.role.charAt(0).toUpperCase() + u.role.slice(1)}: ${u.email}`);
 
-  const validEmailList = [
-    "vikram.singh@precisioncast.com",
-    "rajesh.kumar@precisioncast.com",
-    "priya.sharma@precisioncast.com",
-    "amit.patel@precisioncast.com",   
-    "sneha.mehta@precisioncast.com",  
-  ];
+ const handleLogin = () => {
+  setSubmitted(true);
 
-  const handleLogin = () => {
-    setSubmitted(true);
+  if (!email || !password) {
+    setError("⚠️ Please fill all fields");
+    return;
+  }
 
-    if (!email || !password) {
-      setError("⚠️ Please fill out all fields");
-    } else if (!validEmailList.includes(email)) {
-      setError("invalid");
-    } else {
-      setError("");
-      alert("Login Successful ✅");
-      navigate("/dashboard");
-      setEmail("");
-      setPassword("");
-      setSubmitted(false);
-    }
-  };
+  const user = users.find(
+    (u) => u.email === email && u.password === password
+  );
 
-  const quickLogin = (mail) => {
-    setEmail(mail);
-    setPassword("123456");
+  if (user) {
+    // 🔥 ADD THIS LINE (MOST IMPORTANT)
+    localStorage.setItem("auth", "true");
+    localStorage.setItem("userRole", user.role);
     setError("");
-    navigate("/dashboard");
-  };
+    navigate(user.route);
+  } else {
+    setError("invalid");
+  }
+};
+
+
 
   const handleLogout = () => {
     setShowLogoutModal(false);
@@ -156,46 +180,44 @@ export default function Mainapp() {
               <div className="alert alert-dark py-1">{error}</div>
             )}
 
-            {/* PASSWORD */}
-            <label>Password</label>
-            <div className="input-group mb-3">
-              <span className="input-group-text">🔒</span>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="********"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  setError("");
-                }}
-              />
-            </div>
+             {/* PASSWORD */}
+             <label>Password</label>
+             <div className="input-group mb-3">
+               <span className="input-group-text">🔒</span>
+               <input
+                 type="password"
+                 className="form-control"
+                 placeholder="********"
+                 value={password}
+                 onChange={(e) => {
+                   setPassword(e.target.value);
+                   setError("");
+                 }}
+               />
+             </div>
 
-            {/* Remember Me + Forgot Password */}
-<div className="d-flex justify-content-between align-items-center mb-3">
-  
-  {/* Remember Me */}
-  <div className="form-check">
-    <input
-      type="checkbox"
-      className="form-check-input"
-      id="rememberMe"
-    />
-    <label className="form-check-label" htmlFor="rememberMe">
-      Remember Me
-    </label>
-  </div>
+             {/* Remember Me + Forgot Password */}
+             <div className="d-flex justify-content-between align-items-center mb-3">
+               {/* Remember Me */}
+               <div className="form-check">
+                 <input
+                   type="checkbox"
+                   className="form-check-input"
+                   id="rememberMe"
+                 />
+                 <label className="form-check-label" htmlFor="rememberMe">
+                   Remember Me
+                 </label>
+               </div>
 
-  {/* Forgot Password */}
-  <span
-    style={{ cursor: "pointer", color: "#0436a3", fontSize: "14px" }}
-    onClick={() => alert("Forgot Password clicked")}
-  >
-    Forgot Password?
-  </span>
-
-</div>
+               {/* Forgot Password */}
+               <span
+                 style={{ cursor: "pointer", color: "#0436a3", fontSize: "14px" }}
+                 onClick={() => alert("Forgot Password clicked")}
+               >
+                 Forgot Password?
+               </span>
+             </div>
 
             <button
               className="btn btn-primary w-100 mb-3"
@@ -211,25 +233,20 @@ export default function Mainapp() {
             <p className="mb-1">Demo Credentials (Click to Login):</p>
 
             <div className="d-grid gap-2">
-              <button className="btn btn-light text-start small" onClick={() => quickLogin("vikram.singh@precisioncast.com")}>
-                    <b>Admin</b><br /> vikram.singh@precisioncast.com
-               </button>
-
-              <button className="btn btn-light text-start small" onClick={() => quickLogin("rajesh.kumar@precisioncast.com")}>
-                <b>Production</b><br /> rajesh.kumar@precisioncast.com
-              </button>
-
-              <button className="btn btn-light text-start small" onClick={() => quickLogin("priya.sharma@precisioncast.com")}>
-                <b>Quality</b><br /> priya.sharma@precisioncast.com
-              </button>
-
-              <button className="btn btn-light text-start small" onClick={() => quickLogin("amit.patel@precisioncast.com")}>
-                <b>Procurement</b><br /> amit.patel@precisioncast.com
-              </button>
-
-              <button className="btn btn-light text-start small" onClick={() => quickLogin("sneha.mehta@precisioncast.com")}>
-                <b>Sales</b><br /> sneha.mehta@precisioncast.com
-              </button>
+              {users.map((u, i) => (
+                <button
+                  key={i}
+                  className="btn btn-light text-start small"
+                  onClick={() => {
+                    localStorage.setItem("auth", "true");
+                    localStorage.setItem("userRole", u.role);
+                    navigate(u.route);
+                  }}
+                >
+                  <b>{u.role.charAt(0).toUpperCase() + u.role.slice(1)}</b><br />
+                  {u.email}
+                </button>
+              ))}
             </div>
           </div>
 
