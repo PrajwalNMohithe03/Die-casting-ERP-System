@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -72,3 +72,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 =======
 # Die-casting-ERP-System
 >>>>>>> ad7acfab61e09e43df3b0605a04825b1079872ba
+=======
+
+>>>>>>> e79801b7bc62c8019c2e3e50c83f9ecf82d11d6d
