@@ -19,9 +19,13 @@ function Adminroutes() {
   const Layout = ({ children }) => (
     <div className="d-flex">
       <Sidebar collapsed={collapsed} />
+
       <div className="flex-grow-1">
         <Header collapsed={collapsed} setCollapsed={setCollapsed} />
-        <div className="p-3">{children}</div>
+
+        <div className="p-3">
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -29,19 +33,19 @@ function Adminroutes() {
   return (
     <Routes>
 
-      {/* DEFAULT → redirect to admin dashboard */}
-      <Route path="/" element={<Navigate to="/admin" />} />
+      {/* DEFAULT → /admin → dashboard */}
+      <Route index element={<Navigate to="dashboard" />} />
 
-      {/* ADMIN DASHBOARD */}
-      <Route path="/admin" element={<Layout><Dashboard /></Layout>} />
+      {/* DASHBOARD */}
+      <Route path="dashboard" element={<Layout><Dashboard /></Layout>} />
 
-      <Route path="/usermanagement" element={<Layout><UserManagement /></Layout>} />
-      <Route path="/items-bom" element={<Layout><ItemsBOM /></Layout>} />
-      <Route path="/procurement" element={<Layout><Procurement /></Layout>} />
-      <Route path="/productionfile" element={<Layout><ProductionFile /></Layout>} />
-      <Route path="/analyticsoee" element={<Layout><AnalyticsOEE /></Layout>} />
-      <Route path="/qualitycontrol" element={<Layout><QualityControl /></Layout>} />
-      <Route path="/settings" element={<Layout><Settings /></Layout>} />
+      <Route path="usermanagement" element={<Layout><UserManagement /></Layout>} />
+      <Route path="items-bom" element={<Layout><ItemsBOM /></Layout>} />
+      <Route path="procurement" element={<Layout><Procurement /></Layout>} />
+      <Route path="productionfile" element={<Layout><ProductionFile /></Layout>} />
+      <Route path="analyticsoee" element={<Layout><AnalyticsOEE /></Layout>} />
+      <Route path="qualitycontrol" element={<Layout><QualityControl /></Layout>} />
+      <Route path="settings" element={<Layout><Settings /></Layout>} />
 
     </Routes>
   );

@@ -1,21 +1,28 @@
 import { Routes, Route } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
+
 import Login from "./pages/Login";
-import Admin from "./pages/dashboards/Admindashboard/Admin";
+import Adminroutes from "./routes/Adminroutes";
+
 import Production from "./pages/dashboards/Productiondashboard/Production";
 import Quality from "./pages/dashboards/QualityDashboard/Quality";
 import Procurement from "./pages/dashboards/Procurementdashboard/Procurement";
-import Adminroutes from "./routes/Adminroutes";
 
 function App() {
   return (
     <Routes>
+
+      {/* LOGIN */}
       <Route path="/" element={<Login />} />
-      <Route path="/*" element={<Adminroutes />} />
-      <Route path="/admin" element={<Admin />} />
+
+      {/* ADMIN ROUTES */}
+      <Route path="/admin/*" element={<Adminroutes />} />
+
+      {/* OTHER DASHBOARDS */}
       <Route path="/production" element={<Production />} />
       <Route path="/quality" element={<Quality />} />
       <Route path="/procurement" element={<Procurement />} />
+
     </Routes>
   );
 }
