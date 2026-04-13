@@ -143,16 +143,16 @@ const [openMenuIndex, setOpenMenuIndex] = useState(null);
         {/* TABLE */}
         <div className="card p-3" style={{ borderRadius: "12px" }}>
           <table className="table align-middle">
-            <thead className="text-muted small">
+            <thead className="text-muted small" style={{fontSize: "12px", color: "#cdd2da", textTransform: "uppercase", letterSpacing: "0.5px",}}>
               <tr>
-                <th>ITEM CODE</th>
-                <th>ITEM NAME</th>
-                <th>CATEGORY</th>
-                <th>TYPE</th>
-                <th>STOCK / SHOTS</th>
-                <th>UNIT</th>
-                <th>STATUS</th>
-                <th>ACTIONS</th>
+                <th style={{ padding: "12px 10px", fontWeight: 500 }}>ITEM CODE</th>
+                <th style={{ padding: "12px 10px", fontWeight: 500 }}>ITEM NAME</th>
+                <th style={{ padding: "12px 10px", fontWeight: 500 }}>CATEGORY</th>
+                <th style={{ padding: "12px 10px", fontWeight: 500 }}>TYPE</th>
+                <th style={{ padding: "12px 10px", fontWeight: 500 }}>STOCK / SHOTS</th>
+                <th style={{ padding: "12px 10px", fontWeight: 500 }}>UNIT</th>
+                <th style={{ padding: "12px 10px", fontWeight: 500 }}>STATUS</th>
+                <th style={{ padding: "12px 10px", fontWeight: 500 }}>ACTIONS</th>
               </tr>
             </thead>
 

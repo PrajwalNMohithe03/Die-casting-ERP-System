@@ -24,28 +24,18 @@ const confirmLogout = () => {
     "⏻ Logout",
   ];
 
- const getTitle = () => {
-  switch (location.pathname.toLowerCase()) {
-    case "/dashboard":
-      return "Dashboard";
-    case "/usermanagement":
-      return "User Management"; 
-    case "/itembom":
-      return "Item & BOM";
-    case "/procurement":
-      return "Procurement";
-    case "/production":
-      return "Production";
-    case "/quality":
-      return "Quality";
-    case "/sales":
-      return "Sales";
-    case "/settings":
-      return "System Settings";
-    default:
-      return "Dashboard";
-  }
-};
+ const getTitle = () => { 
+  switch (location.pathname.toLowerCase()) 
+  { case "/dashboard": return "Dashboard"; 
+    case "/usermanagement": return "User Management"; 
+    case "/itembom": return "Item & BOM"; 
+    case "/procurement": return "Procurement"; 
+    case "/production": return "Production"; 
+    case "/quality": return "Quality"; 
+    case "/sales": return "Sales"; 
+    case "/settings": return "System Settings"; 
+    default: return "Dashboard"; 
+  } };
 
   return (
     <div

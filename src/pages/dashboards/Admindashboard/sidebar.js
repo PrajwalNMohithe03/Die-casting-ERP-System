@@ -8,15 +8,13 @@ import { FiSettings } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const sidebarItems = [
-  { name: "Dashboard", icon: <FaTachometerAlt />, path: "/dashboard" },
-  { name: "User Management", icon: <FaUserCog />, path: "/users" },
+  { name: "Dashboard", icon: <FaTachometerAlt />, path: "/admin" },
+  { name: "User Management", icon: <FaUserCog />, path: "/usermanagement" },
   { name: "Items & BOM", icon: <FaBoxOpen />, path: "/items-bom" },
   { name: "Procurement", icon: <FaShoppingBag />, path: "/procurement" },
-  { name: "Production", icon: <FaIndustry />, path: "/production" },
-  { name: "Quality Control", icon: <FaClipboardCheck />, path: "/quality" },
-  { name: "Sales & Orders", icon: <FaFileInvoiceDollar />, path: "/sales" },
-  { name: "Analytics & OEE", icon: <FaChartLine />, path: "/analyticsoee" }, 
-  { name: "Camera Detection", icon: <FaCameraRetro />, path: "/camera" },
+  { name: "Production", icon: <FaIndustry />, path: "/productionfile" },
+  { name: "Quality Control", icon: <FaClipboardCheck />, path: "/qualitycontrol" },
+  { name: "Analytics & OEE", icon: <FaChartLine />, path: "/analyticsoee" },
   { name: "System Settings", icon: <FiSettings />, path: "/settings" },
 ];
 
