@@ -6,7 +6,7 @@ export default function AddNewItem({ onClose }) {
   const [activeTab, setActiveTab] = useState("basic");
 
   return (
-   <div
+    <div
       className="d-flex justify-content-center align-items-center"
       style={{
         position: "fixed",
@@ -22,21 +22,28 @@ export default function AddNewItem({ onClose }) {
       <div
         className="card d-flex flex-column p-4 shadow"
         style={{
-             width: "900px",
-             borderRadius: "10px",
-             }}
-        >
+          width: "900px",
+          borderRadius: "10px",
+        }}
+      >
         {/* HEADER */}
         <div className="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
           <h5 className="mb-0 fw-bold">Add New Item</h5>
           <span style={{ cursor: "pointer" }} onClick={onClose}>
-            𐤕
+            ✕
           </span>
         </div>
 
         {/* Tabs */}
         <ul className="nav nav-tabs mb-3">
-          {["basic", "specs", "inventory", "pricing", "supplier", "attachments"].map((tab) => (
+          {[
+            "basic",
+            "specs",
+            "inventory",
+            "pricing",
+            "supplier",
+            "attachments",
+          ].map((tab) => (
             <li className="nav-item" key={tab}>
               <button
                 className={`nav-link ${activeTab === tab ? "active" : ""}`}
@@ -56,7 +63,6 @@ export default function AddNewItem({ onClose }) {
         {/* ====== BASIC INFO ====== */}
         {activeTab === "basic" && (
           <div className="row">
-
             <div className="col-md-6 mb-3">
               <label className="form-label">Item Code *</label>
               <input className="form-control" placeholder="e.g., RM-001" />
@@ -113,279 +119,247 @@ export default function AddNewItem({ onClose }) {
 
             <div className="col-md-12 mb-3">
               <label className="form-label">Description</label>
-              <textarea className="form-control" placeholder="Enter item description"></textarea>
+              <textarea
+                className="form-control"
+                placeholder="Enter item description"
+              ></textarea>
             </div>
-
           </div>
         )}
 
         {activeTab === "specs" && (
-  <div className="row">
+          <div className="row">
+            <div className="col-md-12 mb-3">
+              <label className="form-label">Technical Specifications</label>
+              <textarea
+                className="form-control"
+                placeholder="Enter technical specifications, material properties, dimensions, etc."
+                style={{ height: "150px" }}
+              ></textarea>
+            </div>
 
-    <div className="col-md-12 mb-3">
-        <label className="form-label">Technical Specifications</label>
-        <textarea className="form-control" placeholder="Enter technical specifications, material properties, dimensions, etc." 
-        style={{ height: "150px" }}></textarea>
-    </div>
+            {/* Weight */}
+            <div className="col-md-6 mb-3">
+              <label>Weight (kg)</label>
+              <input
+                type="number"
+                className="form-control"
+                placeholder="0.000"
+                step="0.001"
+              />
+            </div>
 
-    {/* Weight */}
-    <div className="col-md-6 mb-3">
-      <label>Weight (kg)</label>
-      <input
-        type="number"
-        className="form-control"
-        placeholder="0.000"
-        step="0.001"
-      />
-    </div>
+            {/* Dimensions */}
+            <div className="col-md-6 mb-3">
+              <label>Dimensions (L x W x H)</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="e.g., 150 x 80 x 45 mm"
+              />
+            </div>
 
-    {/* Dimensions */}
-    <div className="col-md-6 mb-3">
-      <label>Dimensions (L x W x H)</label>
-      <input
-        type="text"
-        className="form-control"
-        placeholder="e.g., 150 x 80 x 45 mm"
-      />
-    </div>
+            {/* Material Grade */}
+            <div className="col-md-6 mb-3">
+              <label>Material Grade</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="e.g., A380, ADC12"
+              />
+            </div>
 
-    {/* Material Grade */}
-    <div className="col-md-6 mb-3">
-      <label>Material Grade</label>
-      <input
-        type="text"
-        className="form-control"
-        placeholder="e.g., A380, ADC12"
-      />
-    </div>
+            {/* Color / Finish */}
+            <div className="col-md-6 mb-3">
+              <label>Color / Finish</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="e.g., Natural, Anodized"
+              />
+            </div>
+          </div>
+        )}
 
-    {/* Color / Finish */}
-    <div className="col-md-6 mb-3">
-      <label>Color / Finish</label>
-      <input
-        type="text"
-        className="form-control"
-        placeholder="e.g., Natural, Anodized"
-      />
-    </div>
+        {activeTab === "inventory" && (
+          <div className="row">
+            {/* Current Stock */}
+            <div className="col-md-6 mb-3">
+              <label>Current Stock</label>
+              <input type="number" className="form-control" placeholder="0" />
+            </div>
 
-  </div>
-)}
-         
-         {activeTab === "inventory" && (
-  <div className="row">
+            {/* Reorder Level */}
+            <div className="col-md-6 mb-3">
+              <label>Reorder Level</label>
+              <input type="number" className="form-control" placeholder="0" />
+            </div>
 
-    {/* Current Stock */}
-    <div className="col-md-6 mb-3">
-      <label>Current Stock</label>
-      <input
-        type="number"
-        className="form-control"
-        placeholder="0"
-      />
-    </div>
+            {/* Storage Location */}
+            <div className="col-md-6 mb-3">
+              <label>Storage Location</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="e.g., Warehouse A - Bay 1"
+              />
+            </div>
 
-    {/* Reorder Level */}
-    <div className="col-md-6 mb-3">
-      <label>Reorder Level</label>
-      <input
-        type="number"
-        className="form-control"
-        placeholder="0"
-      />
-    </div>
+            {/* Avg Consumption */}
+            <div className="col-md-6 mb-3">
+              <label>Avg. Consumption (per week)</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="e.g., 850 kg/week"
+              />
+            </div>
 
-    {/* Storage Location */}
-    <div className="col-md-6 mb-3">
-      <label>Storage Location</label>
-      <input
-        type="text"
-        className="form-control"
-        placeholder="e.g., Warehouse A - Bay 1"
-      />
-    </div>
+            {/* Last Purchase Date */}
+            <div className="col-md-6 mb-3">
+              <label>Last Purchase Date</label>
+              <input type="date" className="form-control" />
+            </div>
 
-    {/* Avg Consumption */}
-    <div className="col-md-6 mb-3">
-      <label>Avg. Consumption (per week)</label>
-      <input
-        type="text"
-        className="form-control"
-        placeholder="e.g., 850 kg/week"
-      />
-    </div>
+            {/* Last Production Date */}
+            <div className="col-md-6 mb-3">
+              <label>Last Production Date</label>
+              <input type="date" className="form-control" />
+            </div>
+          </div>
+        )}
 
-    {/* Last Purchase Date */}
-    <div className="col-md-6 mb-3">
-      <label>Last Purchase Date</label>
-      <input
-        type="date"
-        className="form-control"
-      />
-    </div>
+        {activeTab === "pricing" && (
+          <div className="row">
+            {/* Unit Cost */}
+            <div className="col-md-6 mb-3">
+              <label>Unit Cost (₹)</label>
+              <input
+                type="number"
+                className="form-control"
+                placeholder="0.00"
+                step="0.01"
+              />
+            </div>
 
-    {/* Last Production Date */}
-    <div className="col-md-6 mb-3">
-      <label>Last Production Date</label>
-      <input
-        type="date"
-        className="form-control"
-      />
-    </div>
+            {/* Selling Price */}
+            <div className="col-md-6 mb-3">
+              <label>Selling Price (₹)</label>
+              <input
+                type="number"
+                className="form-control"
+                placeholder="0.00"
+                step="0.01"
+              />
+            </div>
 
-  </div>
-)}
+            {/* Currency */}
+            <div className="col-md-6 mb-3">
+              <label>Currency</label>
+              <select className="form-control">
+                <option>INR (₹)</option>
+                <option>USD ($)</option>
+                <option>EUR (€)</option>
+              </select>
+            </div>
 
+            {/* Tax Rate */}
+            <div className="col-md-6 mb-3">
+              <label>Tax Rate (%)</label>
+              <input
+                type="number"
+                className="form-control"
+                placeholder="18.00"
+                step="0.01"
+              />
+            </div>
+          </div>
+        )}
 
-     {activeTab === "pricing" && (
-  <div className="row">
+        {activeTab === "supplier" && (
+          <div className="row">
+            {/* Primary Supplier */}
+            <div className="col-md-6 mb-3">
+              <label>Primary Supplier</label>
+              <select className="form-control">
+                <option>Select Supplier</option>
+                <option>Hindalco Industries</option>
+                <option>Vedanta Zinc</option>
+                <option>Sundaram Fasteners</option>
+                <option>Chem-Lube Technologies</option>
+                <option>Bharat Toolings</option>
+              </select>
+            </div>
 
-    {/* Unit Cost */}
-    <div className="col-md-6 mb-3">
-      <label>Unit Cost (₹)</label>
-      <input
-        type="number"
-        className="form-control"
-        placeholder="0.00"
-        step="0.01"
-      />
-    </div>
+            {/* Supplier Part Number */}
+            <div className="col-md-6 mb-3">
+              <label>Supplier Part Number</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter supplier's part number"
+              />
+            </div>
 
-    {/* Selling Price */}
-    <div className="col-md-6 mb-3">
-      <label>Selling Price (₹)</label>
-      <input
-        type="number"
-        className="form-control"
-        placeholder="0.00"
-        step="0.01"
-      />
-    </div>
+            {/* Lead Time */}
+            <div className="col-md-6 mb-3">
+              <label>Lead Time (days)</label>
+              <input type="number" className="form-control" placeholder="7" />
+            </div>
 
-    {/* Currency */}
-    <div className="col-md-6 mb-3">
-      <label>Currency</label>
-      <select className="form-control">
-        <option>INR (₹)</option>
-        <option>USD ($)</option>
-        <option>EUR (€)</option>
-      </select>
-    </div>
+            {/* Minimum Order Quantity */}
+            <div className="col-md-6 mb-3">
+              <label>Minimum Order Qty</label>
+              <input type="number" className="form-control" placeholder="100" />
+            </div>
+          </div>
+        )}
 
-    {/* Tax Rate */}
-    <div className="col-md-6 mb-3">
-      <label>Tax Rate (%)</label>
-      <input
-        type="number"
-        className="form-control"
-        placeholder="18.00"
-        step="0.01"
-      />
-    </div>
+        {activeTab === "attachments" && (
+          <div className="row">
+            {/* Upload Box */}
+            <div className="col-md-12 mb-3">
+              <div
+                className="border rounded p-4 text-center"
+                style={{
+                  border: "3px dashed #adb5bd",
+                  borderRadius: "8px",
+                  backgroundColor: "#f8f9fa",
+                  cursor: "pointer",
+                  height: "250px",
+                }}
+                onClick={() => document.getElementById("fileInput").click()}
+              >
+                <i
+                  className="bi bi-cloud-upload"
+                  style={{ fontSize: "32px", color: "#6c757d" }}
+                ></i>
+                <p className="mb-2 mt-3">
+                  Drag and drop files here, or click to browse
+                </p>
+                <p className="text-muted small">
+                  Supported: PDF, Images, CAD files (Max 10MB each)
+                </p>
 
-  </div>
-)}
-        
-{activeTab === "supplier" && (
-  <div className="row">
+                <button className="btn btn-primary mt-2">Browse Files</button>
 
-    {/* Primary Supplier */}
-    <div className="col-md-6 mb-3">
-      <label>Primary Supplier</label>
-      <select className="form-control">
-        <option>Select Supplier</option>
-        <option>Hindalco Industries</option>
-        <option>Vedanta Zinc</option>
-        <option>Sundaram Fasteners</option>
-        <option>Chem-Lube Technologies</option>
-        <option>Bharat Toolings</option>
-      </select>
-    </div>
+                {/* Hidden Input */}
+                <input
+                  id="fileInput"
+                  type="file"
+                  multiple
+                  style={{ display: "none" }}
+                />
+              </div>
+            </div>
 
-    {/* Supplier Part Number */}
-    <div className="col-md-6 mb-3">
-      <label>Supplier Part Number</label>
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Enter supplier's part number"
-      />
-    </div>
-
-    {/* Lead Time */}
-    <div className="col-md-6 mb-3">
-      <label>Lead Time (days)</label>
-      <input
-        type="number"
-        className="form-control"
-        placeholder="7"
-      />
-    </div>
-
-    {/* Minimum Order Quantity */}
-    <div className="col-md-6 mb-3">
-      <label>Minimum Order Qty</label>
-      <input
-        type="number"
-        className="form-control"
-        placeholder="100"
-      />
-    </div>
-
-  </div>
-)}
-
-
-{activeTab === "attachments" && (
-  <div className="row">
-
-    {/* Upload Box */}
-    <div className="col-md-12 mb-3">
-      <div
-        className="border rounded p-4 text-center"
-        style={{
-          border: "3px dashed #adb5bd",
-          borderRadius: "8px",
-          backgroundColor: "#f8f9fa",
-          cursor: "pointer",
-          height: "250px" 
-        }}
-        onClick={() => document.getElementById("fileInput").click()}
-      >
-
-         <i className="bi bi-cloud-upload"
-           style={{ fontSize: "32px", color: "#6c757d" }}
-          ></i>
-        <p className="mb-2 mt-3">
-          Drag and drop files here, or click to browse
-        </p>
-        <p className="text-muted small">
-          Supported: PDF, Images, CAD files (Max 10MB each)
-        </p>
-
-        <button className="btn btn-primary mt-2">
-          Browse Files
-        </button>
-
-        {/* Hidden Input */}
-        <input
-          id="fileInput"
-          type="file"
-          multiple
-          style={{ display: "none" }}
-        />
-      </div>
-    </div>
-
-    {/* Attached Files List */}
-    <div className="col-md-12">
-      <h6>Attached Files (0):</h6>
-       <p className="text-muted small">No files attached yet</p>
-    </div>
-
-  </div>
-)}
-
+            {/* Attached Files List */}
+            <div className="col-md-12">
+              <h6>Attached Files (0):</h6>
+              <p className="text-muted small">No files attached yet</p>
+            </div>
+          </div>
+        )}
 
         {/* FOOTER - always visible */}
         <div className="d-flex justify-content-end gap-2 mt-4 border-top pt-3">
@@ -394,7 +368,6 @@ export default function AddNewItem({ onClose }) {
           </button>
           <button className="btn btn-primary">💾 Save Item</button>
         </div>
-
       </div>
     </div>
   );

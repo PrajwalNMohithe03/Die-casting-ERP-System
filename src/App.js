@@ -11,18 +11,15 @@ import Procurement from "./pages/dashboards/Procurementdashboard/Procurement";
 function App() {
   return (
     <Routes>
-
-      {/* LOGIN */}
       <Route path="/" element={<Login />} />
 
-      {/* ADMIN ROUTES */}
+      {/* ADMIN */}
       <Route path="/admin/*" element={<Adminroutes />} />
 
-      {/* OTHER DASHBOARDS */}
+      {/* OTHER */}
       <Route path="/production" element={<Production />} />
       <Route path="/quality" element={<Quality />} />
       <Route path="/procurement" element={<Procurement />} />
-
     </Routes>
   );
 }

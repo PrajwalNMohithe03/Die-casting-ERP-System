@@ -1,6 +1,6 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 
-export default function AddUserForm({ onClose, user, mode })  {
+export default function AddUserForm({ onClose, user, mode }) {
   const [activeTab, setActiveTab] = useState("personal");
 
   return (
@@ -29,7 +29,7 @@ export default function AddUserForm({ onClose, user, mode })  {
         <div className="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
           <h5 className="mb-0 fw-bold">Add New User</h5>
           <span style={{ cursor: "pointer" }} onClick={onClose}>
-            𐤕
+            ✕
           </span>
         </div>
 
@@ -81,29 +81,31 @@ export default function AddUserForm({ onClose, user, mode })  {
                   NA
                 </div>
 
+                <div className="ms-3 d-flex flex-column">
+                  <button
+                    style={{
+                      backgroundColor: "#ffffff",
+                      color: "#111315",
+                      border: "1px solid #ccc",
+                      padding: "5px 12px",
+                      borderRadius: "6px",
+                      fontWeight: "500",
+                      cursor: "pointer",
+                      fontSize: "0.85rem",
+                      width: "fit-content",
+                    }}
+                  >
+                    Change Avatar
+                  </button>
 
-<div className="ms-3 d-flex flex-column">
-  <button
-    style={{
-      backgroundColor: "#ffffff",
-      color: "#111315",
-      border: "1px solid #ccc",
-      padding: "5px 12px",
-      borderRadius: "6px",
-      fontWeight: "500",
-      cursor: "pointer",
-      fontSize: "0.85rem",
-      width: "fit-content"
-    }}
-  >
-    Change Avatar
-  </button>
-
-  <small className="text-muted mt-1" style={{ fontSize: "0.75rem" }}>
-    JPG, PNG or GIF (Max 2MB)
-  </small>
-</div>
-</div>
+                  <small
+                    className="text-muted mt-1"
+                    style={{ fontSize: "0.75rem" }}
+                  >
+                    JPG, PNG or GIF (Max 2MB)
+                  </small>
+                </div>
+              </div>
 
               {/* FORM */}
               <div className="row g-3">
@@ -218,12 +220,61 @@ export default function AddUserForm({ onClose, user, mode })  {
               <table className="table table-bordered text-center mt-4">
                 <thead className="table-light">
                   <tr>
-                    <th className="text-start" style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>MODULE</th>
-                    <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>VIEW</th>
-                    <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>CREATE</th>
-                    <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>EDIT</th>
-                    <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>DELETE</th>
-                    <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>SPECIAL</th>
+                    <th
+                      className="text-start"
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      MODULE
+                    </th>
+                    <th
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      VIEW
+                    </th>
+                    <th
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      CREATE
+                    </th>
+                    <th
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      EDIT
+                    </th>
+                    <th
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      DELETE
+                    </th>
+                    <th
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      SPECIAL
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -319,153 +370,328 @@ export default function AddUserForm({ onClose, user, mode })  {
               <div className="custom-scroll" style={{ maxHeight: "300px" }}>
                 <table className="table table-bordered mb-5 mt-4">
                   <thead className="table-light">
-                     <tr>
-                     <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>TIMESTAMP</th>
-                     <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>ACTION</th>
-                     <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>MODULE</th>
-                     <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>IP ADDRESS</th>
+                    <tr>
+                      <th
+                        style={{
+                          fontSize: "14px",
+                          color: "#6c757d",
+                          fontWeight: "500",
+                        }}
+                      >
+                        TIMESTAMP
+                      </th>
+                      <th
+                        style={{
+                          fontSize: "14px",
+                          color: "#6c757d",
+                          fontWeight: "500",
+                        }}
+                      >
+                        ACTION
+                      </th>
+                      <th
+                        style={{
+                          fontSize: "14px",
+                          color: "#6c757d",
+                          fontWeight: "500",
+                        }}
+                      >
+                        MODULE
+                      </th>
+                      <th
+                        style={{
+                          fontSize: "14px",
+                          color: "#6c757d",
+                          fontWeight: "500",
+                        }}
+                      >
+                        IP ADDRESS
+                      </th>
                     </tr>
-                 </thead>
-    <tbody>
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350"}}>10-Mar-2026 09:15</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Logged in</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px", 
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Authentication
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        10-Mar-2026 09:15
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Logged in
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Authentication
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
 
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>10-Mar-2026 09:20</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Viewed Work Order WO-2024-0891</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px",
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Production
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        10-Mar-2026 09:20
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Viewed Work Order WO-2024-0891
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Production
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
 
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>10-Mar-2026 09:35</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Updated Machine DCM-01 status</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px",
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Production
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        10-Mar-2026 09:35
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Updated Machine DCM-01 status
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Production
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
 
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>09-Mar-2026 16:40</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Created NCR-004</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px",
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Quality
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        09-Mar-2026 16:40
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Created NCR-004
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Quality
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
 
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>09-Mar-2026 14:20</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Exported Analytics Report</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px",
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Analytics
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        09-Mar-2026 14:20
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Exported Analytics Report
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Analytics
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
 
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>09-Mar-2026 11:15</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Logged in</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px",
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Authentication
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
-</tbody>
-
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        09-Mar-2026 11:15
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Logged in
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Authentication
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -503,4 +729,4 @@ export default function AddUserForm({ onClose, user, mode })  {
       </div>
     </div>
   );
-} 
+}

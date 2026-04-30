@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 export default function ViewEditUserForm({ onClose, user, mode }) {
-
   const [activeTab, setActiveTab] = useState("personal");
   const [formData, setFormData] = useState({
     name: "",
@@ -31,7 +30,7 @@ export default function ViewEditUserForm({ onClose, user, mode }) {
   const isView = mode === "view";
 
   return (
-   <div
+    <div
       className="d-flex justify-content-center align-items-center"
       style={{
         position: "fixed",
@@ -52,7 +51,6 @@ export default function ViewEditUserForm({ onClose, user, mode }) {
           borderRadius: "10px",
         }}
       >
-
         {/* HEADER */}
         <div className="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
           <h5 className="fw-bold mb-0">
@@ -65,7 +63,7 @@ export default function ViewEditUserForm({ onClose, user, mode }) {
             onClick={onClose}
             style={{ cursor: "pointer", fontSize: "20px" }}
           >
-            𐤕
+            ✕
           </span>
         </div>
 
@@ -117,57 +115,59 @@ export default function ViewEditUserForm({ onClose, user, mode }) {
                   NA
                 </div>
 
+                <div className="ms-3 d-flex flex-column">
+                  <button
+                    style={{
+                      backgroundColor: "#ffffff",
+                      color: "#111315",
+                      border: "1px solid #ccc",
+                      padding: "5px 12px",
+                      borderRadius: "6px",
+                      fontWeight: "500",
+                      cursor: "pointer",
+                      fontSize: "0.85rem",
+                      width: "fit-content",
+                    }}
+                  >
+                    Change Avatar
+                  </button>
 
-<div className="ms-3 d-flex flex-column">
-  <button
-    style={{
-      backgroundColor: "#ffffff",
-      color: "#111315",
-      border: "1px solid #ccc",
-      padding: "5px 12px",
-      borderRadius: "6px",
-      fontWeight: "500",
-      cursor: "pointer",
-      fontSize: "0.85rem",
-      width: "fit-content"
-    }}
-  >
-    Change Avatar
-  </button>
+                  <small
+                    className="text-muted mt-1"
+                    style={{ fontSize: "0.75rem" }}
+                  >
+                    JPG, PNG or GIF (Max 2MB)
+                  </small>
+                </div>
+              </div>
 
-  <small className="text-muted mt-1" style={{ fontSize: "0.75rem" }}>
-    JPG, PNG or GIF (Max 2MB)
-  </small>
-</div>
-</div>
+              {/* FORM */}
+              <div className="row g-3">
+                <div className="col-md-6">
+                  <label className="form-label">Full Name</label>
+                  <input
+                    className="form-control"
+                    value={formData.name}
+                    disabled={isView}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                  />
+                </div>
 
-        {/* FORM */}
-        <div className="row g-3">
-          <div className="col-md-6">
-            <label className="form-label">Full Name</label>
-            <input
-              className="form-control"
-              value={formData.name}
-              disabled={isView}
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-            />
-          </div>
+                <div className="col-md-6">
+                  <label className="form-label">Email</label>
+                  <input
+                    className="form-control"
+                    value={formData.email}
+                    disabled={isView}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                  />
+                </div>
 
-          <div className="col-md-6">
-            <label className="form-label">Email</label>
-            <input
-              className="form-control"
-              value={formData.email}
-              disabled={isView}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-            />
-          </div>
-
-          <div className="col-md-6">
+                <div className="col-md-6">
                   <label className="form-label">Role *</label>
                   <select className="form-select">
                     <option>Select Role</option>
@@ -262,12 +262,61 @@ export default function ViewEditUserForm({ onClose, user, mode }) {
               <table className="table table-bordered text-center mt-4">
                 <thead className="table-light">
                   <tr>
-                    <th className="text-start" style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>MODULE</th>
-                    <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>VIEW</th>
-                    <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>CREATE</th>
-                    <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>EDIT</th>
-                    <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>DELETE</th>
-                    <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>SPECIAL</th>
+                    <th
+                      className="text-start"
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      MODULE
+                    </th>
+                    <th
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      VIEW
+                    </th>
+                    <th
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      CREATE
+                    </th>
+                    <th
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      EDIT
+                    </th>
+                    <th
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      DELETE
+                    </th>
+                    <th
+                      style={{
+                        fontSize: "14px",
+                        color: "#6c757d",
+                        fontWeight: "500",
+                      }}
+                    >
+                      SPECIAL
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -363,159 +412,333 @@ export default function ViewEditUserForm({ onClose, user, mode }) {
               <div className="custom-scroll" style={{ maxHeight: "300px" }}>
                 <table className="table table-bordered mb-5 mt-4">
                   <thead className="table-light">
-                     <tr>
-                     <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>TIMESTAMP</th>
-                     <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>ACTION</th>
-                     <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>MODULE</th>
-                     <th style={{ fontSize: "14px", color: "#6c757d", fontWeight: "500" }}>IP ADDRESS</th>
+                    <tr>
+                      <th
+                        style={{
+                          fontSize: "14px",
+                          color: "#6c757d",
+                          fontWeight: "500",
+                        }}
+                      >
+                        TIMESTAMP
+                      </th>
+                      <th
+                        style={{
+                          fontSize: "14px",
+                          color: "#6c757d",
+                          fontWeight: "500",
+                        }}
+                      >
+                        ACTION
+                      </th>
+                      <th
+                        style={{
+                          fontSize: "14px",
+                          color: "#6c757d",
+                          fontWeight: "500",
+                        }}
+                      >
+                        MODULE
+                      </th>
+                      <th
+                        style={{
+                          fontSize: "14px",
+                          color: "#6c757d",
+                          fontWeight: "500",
+                        }}
+                      >
+                        IP ADDRESS
+                      </th>
                     </tr>
-                 </thead>
-    <tbody>
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350"}}>10-Mar-2026 09:15</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Logged in</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px", 
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Authentication
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        10-Mar-2026 09:15
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Logged in
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Authentication
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
 
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>10-Mar-2026 09:20</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Viewed Work Order WO-2024-0891</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px",
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Production
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        10-Mar-2026 09:20
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Viewed Work Order WO-2024-0891
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Production
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
 
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>10-Mar-2026 09:35</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Updated Machine DCM-01 status</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px",
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Production
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        10-Mar-2026 09:35
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Updated Machine DCM-01 status
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Production
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
 
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>09-Mar-2026 16:40</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Created NCR-004</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px",
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Quality
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        09-Mar-2026 16:40
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Created NCR-004
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Quality
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
 
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>09-Mar-2026 14:20</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Exported Analytics Report</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px",
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Analytics
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        09-Mar-2026 14:20
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Exported Analytics Report
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Analytics
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
 
-  <tr>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>09-Mar-2026 11:15</td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>Logged in</td>
-    <td
-      style={{
-        display: "inline-block",
-        padding: "5px 12px",
-        borderRadius: "5px",
-        fontSize: "12px",
-        fontWeight: "500",
-        backgroundColor: "#cdcdf6", 
-        color: "#34017a", 
-        textAlign: "center",
-        minWidth: "80px",
-        marginTop: "5px",
-        marginLeft: "4px",
-      }}
-    >
-      Authentication
-    </td>
-    <td style={{ fontSize: "15px", color: "#090909", fontWeight: "350" }}>192.168.1.45</td>
-  </tr>
-</tbody>
-
+                    <tr>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        09-Mar-2026 11:15
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        Logged in
+                      </td>
+                      <td
+                        style={{
+                          display: "inline-block",
+                          padding: "5px 12px",
+                          borderRadius: "5px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          backgroundColor: "#cdcdf6",
+                          color: "#34017a",
+                          textAlign: "center",
+                          minWidth: "80px",
+                          marginTop: "5px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        Authentication
+                      </td>
+                      <td
+                        style={{
+                          fontSize: "15px",
+                          color: "#090909",
+                          fontWeight: "350",
+                        }}
+                      >
+                        192.168.1.45
+                      </td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </div>
           )}
         </div>
-        
 
         {/* FOOTER */}
         <div className="d-flex justify-content-end gap-2 mt-4">
@@ -524,13 +747,11 @@ export default function ViewEditUserForm({ onClose, user, mode }) {
           </button>
 
           {(mode === "view" || mode === "edit") && (
-           <button className="btn btn-primary">
-              💾 Save Changes
-           </button>
-           )}
+            <button className="btn btn-primary">💾 Save Changes</button>
+          )}
         </div>
-          
-          {/* Custom Scrollbar CSS */}
+
+        {/* Custom Scrollbar CSS */}
         <style jsx>{`
           .custom-scroll {
             overflow-x: hidden;
@@ -550,7 +771,6 @@ export default function ViewEditUserForm({ onClose, user, mode }) {
             background: #797676;
           }
         `}</style>
-
       </div>
     </div>
   );

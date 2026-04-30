@@ -1,21 +1,49 @@
 import React, { useState } from "react";
 import {
-  FaTachometerAlt, FaUserCog, FaBoxOpen, FaShoppingBag,
-  FaIndustry, FaClipboardCheck, FaFileInvoiceDollar,
-  FaChartLine, FaCameraRetro
+  FaTachometerAlt,
+  FaUserCog,
+  FaBoxOpen,
+  FaShoppingBag,
+  FaIndustry,
+  FaClipboardCheck,
+  FaFileInvoiceDollar,
+  FaChartLine,
+  FaCameraRetro,
 } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const sidebarItems = [
-  { name: "Dashboard", icon: <FaTachometerAlt />, path: "/admin" },
-  { name: "User Management", icon: <FaUserCog />, path: "/usermanagement" },
-  { name: "Items & BOM", icon: <FaBoxOpen />, path: "/items-bom" },
-  { name: "Procurement", icon: <FaShoppingBag />, path: "/procurement" },
-  { name: "Production", icon: <FaIndustry />, path: "/productionfile" },
-  { name: "Quality Control", icon: <FaClipboardCheck />, path: "/qualitycontrol" },
-  { name: "Analytics & OEE", icon: <FaChartLine />, path: "/analyticsoee" },
-  { name: "System Settings", icon: <FiSettings />, path: "/settings" },
+  { name: "Dashboard", icon: <FaTachometerAlt />, path: "/admin/dashboard" },
+  {
+    name: "User Management",
+    icon: <FaUserCog />,
+    path: "/admin/usermanagement",
+  },
+  { name: "Items & BOM", icon: <FaBoxOpen />, path: "/admin/items-bom" },
+  { name: "Procurement", icon: <FaShoppingBag />, path: "/admin/procurement" },
+  { name: "Production", icon: <FaIndustry />, path: "/admin/productionfile" },
+  {
+    name: "Quality Control",
+    icon: <FaClipboardCheck />,
+    path: "/admin/qualitycontrol",
+  },
+  {
+    name: "Sales & Orders",
+    icon: <FaFileInvoiceDollar />,
+    path: "/admin/sales",
+  },
+  {
+    name: "Analytics & OEE",
+    icon: <FaChartLine />,
+    path: "/admin/analyticsoee",
+  },
+  {
+    name: "Camera Detection",
+    icon: <FaCameraRetro />,
+    path: "/admin/camera-detection",
+  },
+  { name: "System Settings", icon: <FiSettings />, path: "/admin/settings" },
 ];
 
 export default function Sidebar({ collapsed }) {
@@ -26,7 +54,6 @@ export default function Sidebar({ collapsed }) {
   const location = useLocation();
 
   const handleMobileToggle = () => setMobileOpen(!mobileOpen);
-
   const handleLogout = () => setShowConfirm(true);
 
   const confirmLogout = () => {
@@ -60,9 +87,24 @@ export default function Sidebar({ collapsed }) {
         }}
       >
         {/* LOGO */}
-        <div className="py-3 px-3 border-bottom" style={{ borderBottom: "1px solid #5a7cff" }}>
-          <h5 className="m-0">{collapsed ? "PC" : "Precision Cast"}</h5>
-          {!collapsed && <small className="text-light">ERP System</small>}
+        <div
+          className="mt-3"
+          style={{
+            borderBottom: "1px solid rgba(17, 83, 252, 0.91)",
+            paddingLeft: "6px",
+            marginBottom: "3px",
+            paddingBottom: "6px",
+          }}
+        >
+          <h5 className="m-0 ps-3">{collapsed ? "PC" : "Precision Cast"}</h5>
+          {!collapsed && (
+            <small
+              className="text-light ps-3"
+              style={{ marginTop: "5px", display: "block" }}
+            >
+              ERP System
+            </small>
+          )}
         </div>
 
         {/* MENU */}
@@ -71,11 +113,11 @@ export default function Sidebar({ collapsed }) {
           style={{
             overflowY: "auto",
             paddingBottom: "10px",
-            scrollbarWidth: "thin",
+            scrollbarWidth: "6px",
             scrollbarColor: "gray black",
           }}
         >
-          <ul className="nav flex-column mt-2">
+          <ul className="nav flex-column mt-1">
             {sidebarItems.map((item, idx) => {
               const isActive = location.pathname === item.path;
 
@@ -93,7 +135,9 @@ export default function Sidebar({ collapsed }) {
                     (e.currentTarget.style.backgroundColor = "#0d6efd")
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.backgroundColor = isActive ? "#0d6efd" : "transparent")
+                    (e.currentTarget.style.backgroundColor = isActive
+                      ? "#0d6efd"
+                      : "transparent")
                   }
                 >
                   <span style={{ fontSize: "20px" }}>{item.icon}</span>
@@ -110,15 +154,23 @@ export default function Sidebar({ collapsed }) {
         </div>
 
         {/* USER + LOGOUT */}
-        <div className="border-top" style={{ borderTop: "1px solid #4063f0" }}>
+        <div
+          className="borderTop"
+          style={{
+            borderTop: "1px solid rgba(17, 83, 252, 0.91)",
+          }}
+        >
           <div className="d-flex align-items-center p-3">
             <div
               className="bg-light text-dark rounded-circle d-flex align-items-center justify-content-center"
-              style={{ width: "30px", height: "30px", fontWeight: "bold" }}
+              style={{
+                width: "30px",
+                height: "30px",
+                fontWeight: "bold",
+              }}
             >
               VS
             </div>
-
             {!collapsed && (
               <div className="ms-2">
                 <b className="d-block text-white">Vikram Singh</b>
@@ -142,14 +194,10 @@ export default function Sidebar({ collapsed }) {
                 borderRadius: "6px",
                 transition: "0.3s",
               }}
-              onMouseEnter={(e) =>
-                (e.target.style.backgroundColor = "#bb2d3b")
-              }
-              onMouseLeave={(e) =>
-                (e.target.style.backgroundColor = "#dc3545")
-              }
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "#bb2d3b")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "#dc3545")}
             >
-            <h6 className="m-0">{collapsed ? "⏻" : "⏻ Logout"}</h6>
+              <h6 className="m-0">{collapsed ? "➜]" : "➜] Logout"}</h6>
             </button>
           </div>
         </div>
@@ -157,62 +205,66 @@ export default function Sidebar({ collapsed }) {
 
       {/* LOGOUT MODAL */}
       {showConfirm && (
-  <>
-    {/* Backdrop */}
-    <div className="modal-backdrop fade show"></div>
+        <>
+          <div className="modal-backdrop fade show"></div>
 
-    <div
-      className="modal fade show"
-      style={{ display: "block" }}
-      tabIndex="-1"
-    >
-      <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content text-center">
-
-          <div className="modal-header">
-            <h5 className="modal-title">
-              Confirm Logout
-            </h5>
-            <button
-              type="button"
-              className="btn-close"
-              onClick={cancelLogout}
-            ></button>
-          </div>
-
-          <div className="modal-body">
-            Are you sure you want to logout?
-            <br />
-            <small>Any unsaved changes will be lost.</small>
-          </div>
-
-          <div className="modal-footer justify-content-center gap-3">
-            <button
-              className="btn btn-secondary"
-              onClick={cancelLogout}
+          <div className="modal fade show" style={{ display: "block" }}>
+            <div
+              className="modal-dialog modal-dialog-centered"
+              style={{ width: "400px" }}
             >
-              Cancel
-            </button>
+              <div className="modal-content border-0 rounded-4 p-4">
+                <div className="d-flex gap-3">
+                  {/* Icon */}
+                  <div
+                    className="bg-danger-subtle text-danger rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                    style={{ width: "48px", height: "48px" }}
+                  >
+                    <span className="fs-5">➜]</span>
+                  </div>
 
-            <button
-              className="btn btn-danger"
-              onClick={confirmLogout}
-            >
-              Yes, Logout
-            </button>
+                  {/* Content */}
+                  <div className="flex-grow-1 pt-1">
+                    <h5 className="fw-semibold mb-4">Confirm Logout</h5>
+
+                    <p className="text-muted mb-3" style={{ fontSize: "16px" }}>
+                      Are you sure you want to logout? Any unsaved changes will
+                      be lost.
+                    </p>
+
+                    {/* Buttons */}
+                    <div className="d-flex justify-content-center gap-2">
+                      <button
+                        className="btn btn-light border rounded-3 px-3 py-2"
+                        style={{ width: "100%", fontWeight: "500" }}
+                        onClick={cancelLogout}
+                      >
+                        Cancel
+                      </button>
+
+                      <button
+                        className="btn btn-danger rounded-3 px-3 py-2"
+                        style={{ width: "100%", fontWeight: "500" }}
+                        onClick={confirmLogout}
+                      >
+                        Yes, Logout
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-        </div>
-      </div>
-    </div>
-  </>
-)}
-
+        </>
+      )}
       {/* BACKDROP */}
       {mobileOpen && (
         <div
           className="position-fixed top-0 start-0 w-100 h-100"
-          style={{ backgroundColor: "rgba(0,0,0,0.4)", zIndex: 999 }}
+          style={{
+            backgroundColor: "rgba(0,0,0,0.4)",
+            zIndex: 999,
+          }}
           onClick={handleMobileToggle}
         />
       )}
